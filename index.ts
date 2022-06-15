@@ -1,8 +1,5 @@
-import { text } from "https://x.nest.land/deno-figlet@0.0.5/mod.js";
-import { styles } from "https://deno.land/x/ansi_styles@1.0.1/mod.ts";
 import axiod from "https://deno.land/x/axiod/mod.ts";
 
-const wordleTitle = await text("Wordle", "starwars");
 const MAX_TRIES = 6;
 let previous_answer: string[] = [];
 
@@ -62,7 +59,6 @@ const colorLetter = (letter: string, index: number) => {
 
 const printGrid = () => {
   console.clear();
-  console.log(styles.green.open, wordleTitle, styles.green.close);
   for (let i = 0; i < previous_answer.length; i++) {
     let row = "";
     [...previous_answer[i]].forEach((letter, index) =>
