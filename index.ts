@@ -20,7 +20,7 @@ const fetchRandomWord = async () => {
 let wordleWord = await fetchRandomWord();
 
 const getWord = async () => {
-  const word = await prompt("Introduce your word");
+  const word = await window.prompt("Introduce your word");
   if (!word) {
     return { error: "Please introduce a word", word: "" };
   }
