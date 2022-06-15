@@ -7,11 +7,17 @@ const MAX_TRIES = 6;
 let previous_answer: string[] = [];
 
 const fetchRandomWord = async () => {
-  const request = await axiod.get("https://random-word-api.herokuapp.com/word");
-  if (request?.data[0]) {
-    return request?.data[0].toUpperCase();
+  try {
+    const request = await axiod.get(
+      "https://random-word-api.herokuapp.com/word",
+    );
+    if (request?.data[0]) {
+      return request?.data[0].toUpperCase();
+    }
+    return "HELLO";
+  } catch (_e) {
+    return "HELLO";
   }
-  return "HELLO";
 };
 
 let wordleWord = await fetchRandomWord();

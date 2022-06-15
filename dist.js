@@ -1068,11 +1068,15 @@ axiod.interceptors = {
 const wordleTitle = await text("Wordle", "starwars");
 let previous_answer = [];
 const fetchRandomWord = async ()=>{
-    const request1 = await axiod.get("https://random-word-api.herokuapp.com/word");
-    if (request1?.data[0]) {
-        return request1?.data[0].toUpperCase();
+    try {
+        const request1 = await axiod.get("https://random-word-api.herokuapp.com/word");
+        if (request1?.data[0]) {
+            return request1?.data[0].toUpperCase();
+        }
+        return "HELLO";
+    } catch (_e) {
+        return "HELLO";
     }
-    return "HELLO";
 };
 let wordleWord = await fetchRandomWord();
 const getWord = async ()=>{
